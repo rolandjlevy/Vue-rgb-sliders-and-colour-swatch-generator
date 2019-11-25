@@ -59,9 +59,9 @@
             Hex: #{{`${hexColour(red,green,blue)}`}}
           </div>
 
-          <!-- <button class="m-b-10" @click="randomise">Randomise</button> -->
-
           <hr>
+
+          <!-- <button class="m-b-10" @click="randomise">Randomise</button> -->
 
           <h3>Click <i class="fas fa-plus"></i> to add or <i class="fas fa-times"></i> to remove</h3>
 
@@ -69,6 +69,7 @@
             <label for="random" class="pointer">Randomise</label>
             <input id="random" type="checkbox" v-model="random">
           </div>
+          <button class="m-b-10" @click="clearAll">&times; Clear all</button>
 
           <div 
             :style="{'background-color': `rgb(${red},${green},${blue}`}"

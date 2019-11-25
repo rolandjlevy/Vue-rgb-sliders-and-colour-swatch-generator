@@ -25,6 +25,9 @@ const ColourPicker = {
         }
       });
     },
+    clearAll() {
+      this.coloursArray = [];
+    },
     hex(value) {
       const n = Math.abs(value).toString(16);
       return n < 10 ? `0${n}` : n.toUpperCase();
