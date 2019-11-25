@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>repl.it</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" type="text/css" />
     <link href="slider.css" rel="stylesheet" type="text/css" />
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
@@ -58,7 +59,11 @@
             Hex: #{{`${hexColour(red,green,blue)}`}}
           </div>
 
-          <button class="m-b-10" @click="randomise">Randomise</button>
+          <!-- <button class="m-b-10" @click="randomise">Randomise</button> -->
+
+          <hr>
+
+          <h3>Click <i class="fas fa-plus"></i> to add or <i class="fas fa-times"></i> to remove</h3>
 
           <div class="m-b-10">
             <label for="random" class="pointer">Randomise</label>
