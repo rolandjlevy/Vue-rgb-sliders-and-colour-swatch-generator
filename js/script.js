@@ -40,6 +40,16 @@ const UtilsMixin = {
       const n = Math.abs(value).toString(16);
       return n < 10 ? `0${n}` : n.toUpperCase();
     },
+    convertHexToNum(a, b) {
+      return parseInt(`${a}${b}`, 16);
+    },
+    dec(e) {
+      const arr = e.target.value.split('');
+      const { 1:r1, 2:r2, 3:g1, 4:g2, 5:b1, 6:b2 } = arr;
+      this.red = this.convertHexToNum(r1, r2);
+      this.green = this.convertHexToNum(g1, g2);
+      this.blue = this.convertHexToNum(b1, b2);
+    },
     randomNum(n) {
       return Math.round(Math.random(n) * n) -1;
     },
