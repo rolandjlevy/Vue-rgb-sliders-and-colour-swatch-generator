@@ -11,13 +11,41 @@
   <body>
     <div id="app">
       <colour-picker>
-        <template v-slot:rgbsliders>
-          <colour-slider col="red"></colour-slider>
-          <colour-slider col="green"></colour-slider>
-          <colour-slider col="blue"></colour-slider>
+        <template v-slot:rgbsliders="{red, green, blue}">
+          <colour-slider 
+            col="red" 
+            :val="red"
+          >
+          </colour-slider>
+          <colour-slider 
+            col="green" 
+            :val="green"
+          >
+          </colour-slider>
+          <colour-slider 
+            col="blue" 
+            :val="blue"
+          >
+          </colour-slider>
         </template>
       </colour-picker>
     </div>
+
+    <template id="colour-slider-template">
+      <div class="m-0 m-b-10 width-200px">
+        <div class="m-b-5">{{col}}: {{vmodel}} </div>
+          <input 
+            v-model="vmodel"
+            class="slider"
+            :class="col"
+            type="range"
+            min="0" 
+            max="255" 
+            step="1"
+            @input="sendSliderValue"
+          >
+      </div>
+    </template>
 
     <template id="colour-picker-template">
 
@@ -25,7 +53,7 @@
 
         <h2>Colour picker</h2>
 
-          <slot name="rgbsliders"></slot>
+          <slot name="rgbsliders" :red="red" :green="green" :blue="blue"></slot>
       
           <span class="m-b-10">
             Hex
@@ -42,15 +70,15 @@
 
           <div class="m-b-10">
             <label for="random" class="pointer">Randomise</label>
-            <input id="random" type="checkbox" v-model="random">
+            <input id="random" type="checkbox" v-model="randomState">
           </div>
           <button class="font-size-16px m-b-10" @click="clearAll">&times; Clear all</button>
-
+          
           <div 
-            :style="{'background-color': `rgb(${red},${green},${blue}`}"
+            :style="getBgColour"
             class="custom-colour add d-block m-b-10"
             @click="addColour(red, green, blue)"
-            :title="`#${hexColour(red,green,blue)}`"
+            :title="`#${hexColour(red, green, blue)}`"
           >
           </div>
 
@@ -66,21 +94,6 @@
           </div>
         </div>
 
-      </template>
-
-      <template id="colour-slider-template">
-        <div class="m-0 m-b-10 width-200px">
-          <div class="m-b-5">{{col}}: {{vmodel}} </div>
-            <input 
-              v-model="vmodel"
-              class="slider"
-              :class="col"
-              type="range"
-              min="0" 
-              max="255" 
-              step="1"
-            >
-        </div>
       </template>
     
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

@@ -1,17 +1,35 @@
 const ColourSlider = {
   template: '#colour-slider-template',
-  data: () => ({
-    vmodel: 0
-  }),
   props: {
     col: {
       type: String,
       default: ''
+    },
+    val: {
+      type: Number,
+      default: 0
+    }
+  },
+  methods: {
+    sendSliderValue(e) {
+      const value = Number(e.target.value);
+      this.emitValue(value);
+    },
+    emitValue(value) {
+      this.$parent.$emit('slidervalue', { col: this.col, value });
+    }
+  },
+  computed: {
+    vmodel: {
+      get() {
+        return this.val
+      },
+      set(val) {}
     }
   },
   watch: {
     vmodel: function (value) {
-      this.$parent.$emit('slidervalue', { col: this.col, value });
+      this.emitValue(value);
     }
   }
 }
@@ -33,6 +51,14 @@ const UtilsMixin = {
       this.green = this.randomNum(256);
       this.blue = this.randomNum(256);
     }
+  },
+  computed: {
+    getBgColour() {
+      const hex = this.hexColour(this.red, this.green, this.blue);
+      return {
+        'background-color': `#${hex}`
+      }
+    }
   }
 }
 
@@ -43,15 +69,15 @@ const ColourPicker = {
     green: 0,
     blue: 0,
     coloursArray: [],
-    random: false
+    randomState: true
   }),
   mixins: [UtilsMixin],
   methods: {
     addColour(r, g, b) {
       const id = this.coloursArray.length;
-      const hex = `#${this.hexColour(r,g,b)}`;
-      this.coloursArray.push({rgb:`rgb(${r},${g},${b})`, hex, id});
-      if (this.random) {
+      const hex = `#${this.hexColour(r, g, b)}`;
+      this.coloursArray.push({rgb:`rgb(${r}, ${g}, ${b})`, hex, id});
+      if (this.randomState) {
         this.randomise();
       }
     },
