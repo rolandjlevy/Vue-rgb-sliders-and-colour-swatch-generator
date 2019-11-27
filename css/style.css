@@ -1,7 +1,7 @@
 body {
   margin: 20px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   color: #333;
 }
 
@@ -88,6 +88,14 @@ button:hover {
   display: inline-block;
 }
 
+.p-5 {
+  padding: 5px;
+}
+
+.m-0 {
+  margin: 0;
+}
+
 .m-t-10 {
   margin-top: 10px;
 }
@@ -100,11 +108,23 @@ button:hover {
   margin-bottom: 10px;
 }
 
+.m-b-5 {
+  margin-bottom: 5px;
+}
+
 .m-l-10 {
   margin-left: 10px;
+}
+
+.width-200px {
+  width: 200px; 
 }
 
 hr {
   margin: 2rem 0;
   border: 1px solid #ddd;
+}
+
+.font-size-16px {
+  font-size: 16px;
 }

@@ -10,72 +10,75 @@
   </head>
   <body>
     <div id="app">
-      <colour-picker></colour-picker>
+      <colour-picker>
+        <template v-slot:rgbsliders="{red, green, blue}">
+          <colour-slider 
+            col="red" 
+            :val="red"
+          >
+          </colour-slider>
+          <colour-slider 
+            col="green" 
+            :val="green"
+          >
+          </colour-slider>
+          <colour-slider 
+            col="blue" 
+            :val="blue"
+          >
+          </colour-slider>
+        </template>
+      </colour-picker>
     </div>
+
+    <template id="colour-slider-template">
+      <div class="m-0 m-b-10 width-200px">
+        <div class="m-b-5">{{col}}: {{vmodel}} </div>
+          <input 
+            v-model="vmodel"
+            class="slider"
+            :class="col"
+            type="range"
+            min="0" 
+            max="255" 
+            step="1"
+            @input="sendSliderValue"
+          >
+      </div>
+    </template>
 
     <template id="colour-picker-template">
 
       <div>
 
-        <h2>Colour swatch maker</h2>
+        <h2>Colour picker</h2>
 
-          <div class="slidecontainer">
-            <span>Red: {{red}}</span>
-              <input 
-                v-model="red" 
-                class="slider red" 
-                type="range" 
-                min="0" 
-                max="255" 
-                step="1"
-              >
-          </div>
-
-          <div class="slidecontainer">
-            <span>Green: {{green}}</span>
-              <input 
-                v-model="green" 
-                class="slider green" 
-                type="range" 
-                min="0" 
-                max="255" 
-                step="1"
-              >
-          </div>
-
-          <div class="slidecontainer">
-            <span>Blue: {{blue}}</span>
-              <input 
-                v-model="blue" 
-                class="slider blue" 
-                type="range" 
-                min="0" 
-                max="255" 
-                step="1"
-              >
-          </div>
-
-          <div class="m-b-10">
-            Hex: #{{`${hexColour(red,green,blue)}`}}
-          </div>
+          <slot name="rgbsliders" :red="red" :green="green" :blue="blue"></slot>
+      
+          <span class="m-b-10">
+            Hex
+             <input 
+              :value="`#${hexColour(red, green, blue)}`"
+              type="text"
+              class="p-5 font-size-16px"
+            >
+          </span>
 
           <hr>
-
-          <!-- <button class="m-b-10" @click="randomise">Randomise</button> -->
 
           <h3>Click <i class="fas fa-plus"></i> to add or <i class="fas fa-times"></i> to remove</h3>
 
           <div class="m-b-10">
             <label for="random" class="pointer">Randomise</label>
-            <input id="random" type="checkbox" v-model="random">
+            <input id="random" type="checkbox" v-model="randomState">
           </div>
-          <button class="m-b-10" @click="clearAll">&times; Clear all</button>
-
+          <button class="font-size-16px m-b-10" @click="clearAll">&times; Clear all</button>
+          
           <div 
-            :style="{'background-color': `rgb(${red},${green},${blue}`}"
+            :style="getBgColour"
             class="custom-colour add d-block m-b-10"
             @click="addColour(red, green, blue)"
-            :title="`#${hexColour(red,green,blue)}`"
+            :title="`#${hexColour(red, green, blue)}`"
           >
           </div>
 
