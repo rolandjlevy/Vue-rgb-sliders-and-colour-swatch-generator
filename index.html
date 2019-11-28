@@ -61,8 +61,13 @@
               :value="`#${hexColour(red, green, blue)}`"
               type="text"
               class="p-5 font-size-16px"
-              @keyup.enter="dec"
+              :class="{'border-red':errorMessage}"
+              @keyup.enter="updateSliders"
             >
+          </span>
+          <span class="font-size-14px color-red m-l-5">
+            <a href="https://www.wikihow.com/Understand-Hexadecimal" target="_blank" class="color-red">
+            {{errorMessage}}</a>
           </span>
 
           <hr>
