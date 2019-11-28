@@ -102,9 +102,8 @@ const ColourPicker = {
     updateSliders(e) {
       const str = e.target.value;
       this.errorMessage = '';
-      if (!this.isValidHex(str)) {
+      if (!this.isValidHex(str) || str.length > 7) {
         this.errorMessage = 'Error: enter a valid hex value';
-        e.preventDefault();
         return;
       } else {
         const { 1:r1, 2:r2, 3:g1, 4:g2, 5:b1, 6:b2 } = str.split('');
