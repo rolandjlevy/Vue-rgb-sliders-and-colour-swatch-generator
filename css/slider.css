@@ -8,9 +8,9 @@
   height: 15px; 
   background: #ccc; 
   outline: none; 
-  opacity: 0.6; 
-  -webkit-transition: 0.2s;
-  transition: opacity 0.2s;
+  opacity: 0.5; 
+  -webkit-transition: 0.4s;
+  transition: opacity 0.4s;
   border-radius: 15px;
   padding: 2px;
   /* filter: drop-shadow(2px 2px 1px #707070); */
