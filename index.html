@@ -9,26 +9,28 @@
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div id="app">
-      <colour-picker>
-        <template v-slot:rgbsliders="{red, green, blue}">
-          <colour-slider 
-            col="red" 
-            :val="red"
-          >
-          </colour-slider>
-          <colour-slider 
-            col="green" 
-            :val="green"
-          >
-          </colour-slider>
-          <colour-slider 
-            col="blue" 
-            :val="blue"
-          >
-          </colour-slider>
-        </template>
-      </colour-picker>
+    <div class="container">
+      <div id="app">
+        <colour-picker>
+          <template v-slot:rgbsliders="{red, green, blue}">
+            <colour-slider 
+              col="red" 
+              :val="red"
+            >
+            </colour-slider>
+            <colour-slider 
+              col="green" 
+              :val="green"
+            >
+            </colour-slider>
+            <colour-slider 
+              col="blue" 
+              :val="blue"
+            >
+            </colour-slider>
+          </template>
+        </colour-picker>
+      </div>
     </div>
 
     <template id="colour-slider-template">
@@ -51,18 +53,18 @@
 
       <div>
 
-        <h2>Colour picker</h2>
+        <h2>Vue.js Colour Swatch Maker</h2>
 
           <slot name="rgbsliders" :red="red" :green="green" :blue="blue"></slot>
       
           <span class="m-b-10">
-            Hex
              <input 
               :value="`#${hexColour(red, green, blue)}`"
               type="text"
               class="p-5 font-size-16px"
               :class="{'border-red':errorMessage}"
               @keyup.enter="updateSliders"
+              placeholder="Enter a hex value"
             >
           </span>
           <span class="font-size-14px color-red m-l-5">
@@ -74,11 +76,12 @@
 
           <h3>Click <i class="fas fa-plus"></i> to add or <i class="fas fa-times"></i> to remove</h3>
 
-          <div class="m-b-10">
-            <label for="random" class="pointer">Randomise</label>
+          <div class="m-b-10" style="float:left;">
+            <label for="random" class="pointer"></label>
+            <button class="font-size-16px m-b-20" @click="randomState = !randomState">Randomise: {{ randomState ? 'on' : 'off' }}</button>
             <input id="random" type="checkbox" v-model="randomState">
           </div>
-          <button class="font-size-16px m-b-10" @click="clearAll">&times; Clear all</button>
+          <button class="font-size-16px m-b-20" @click="clearAll">Clear all &times;</button>
           
           <div 
             :style="getBgColour"
