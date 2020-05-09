@@ -47,13 +47,14 @@ input {
   text-align: center;
   color: #999;
   z-index: 999 !important;
-  transition: background 0.25s ease;
+  transition: background 0.15s ease;
 }
 
 .custom-colour:hover {
   outline: 3px solid #333;
   color: #ddd;
   z-index: 1000 !important;
+  transition: background 0.15s ease;
 }
 
 .custom-colour.delete:hover {
