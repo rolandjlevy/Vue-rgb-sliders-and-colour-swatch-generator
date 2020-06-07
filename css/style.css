@@ -9,13 +9,17 @@ body {
 h2 {
   margin-top: 0;
   font-family: 'Mali', cursive;
-  font-size: 2.5rem;
+  font-size: 2.7rem;
   letter-spacing: 1px;
   background: linear-gradient(45deg,#ffa63d,#ff3d77,#5f19dd);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 100%;
+}
+
+h3 {
+  margin: 0;
 }
 
 .container {
@@ -26,6 +30,30 @@ h2 {
   border-radius: 10px;
   height: 100%;
   box-shadow: 0 15px 15px -10px rgb(201, 201, 201);
+}
+
+.sliders-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.sliders-buttons {
+  margin-left: 40px;
+}
+
+@media (max-width: 480px) {
+
+    .sliders-container {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction:column;
+    }
+
+    .sliders-buttons {
+      margin-left: 0px;
+    }
+
 }
 
 input {
@@ -55,14 +83,14 @@ input {
   text-align: center;
   color: #999;
   z-index: 999 !important;
-  transition: background 0.15s ease;
+  transition: background 0.1s ease;
 }
 
 .custom-colour:hover {
   outline: 3px solid #333;
   color: #ddd;
   z-index: 1000 !important;
-  transition: background 0.15s ease;
+  transition: background 0.1s ease;
 }
 
 .custom-colour.delete:hover {
@@ -138,6 +166,10 @@ button:hover {
   margin-top: 10px;
 }
 
+.m-t-20 {
+  margin-top: 20px;
+}
+
 .m-r-10 {
   margin-right: 10px;
 }
@@ -156,6 +188,14 @@ button:hover {
 
 .m-l-10 {
   margin-left: 10px;
+}
+
+.m-l-20 {
+  margin-left: 20px;
+}
+
+.m-l-40 {
+  margin-left: 40px;
 }
 
 .m-l-5 {
