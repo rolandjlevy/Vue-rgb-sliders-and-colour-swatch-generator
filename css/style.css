@@ -34,8 +34,26 @@ h3 {
 
 .sliders-container {
   display: flex;
-  justify-content:flex-start;
-  flex-direction:row;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.sliders-buttons {
+  margin-left: 40px;
+}
+
+@media (max-width: 480px) {
+
+    .sliders-container {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction:column;
+    }
+
+    .sliders-buttons {
+      margin-left: 0px;
+    }
+
 }
 
 input {

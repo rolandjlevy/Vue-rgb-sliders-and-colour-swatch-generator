@@ -35,7 +35,7 @@
     </div>
 
     <template id="colour-slider-template">
-      <div class="m-0 m-b-10 width-200px">
+      <div class="m-0 m-b-20 width-200px">
         <div class="m-b-5">{{col}}: {{vmodel}} </div>
           <input 
             v-model="vmodel"
@@ -61,7 +61,7 @@
             <main>
               <slot name="rgbsliders" :red="red" :green="green" :blue="blue"></slot>
 
-              <section class="m-b-10">
+              <section class="m-b-20">
                 <input 
                   :value="`#${hexColour(red, green, blue)}`"
                   type="text"
@@ -73,12 +73,12 @@
               </section>
             </main>
 
-            <main class="m-l-40">
+            <main class="sliders-buttons">
 
               <section>
                 <h3 class="m-b-10">Click <i class="fas fa-plus"></i> to add or <i class="fas fa-times"></i> to remove</h3>
 
-                <div class="m-b-10" style="float:left;">
+                <div class="" style="float:left;">
                   <label for="random" class="pointer"></label>
                   <button class="font-size-16px m-b-20" @click="randomState = !randomState">Randomise: {{ randomState ? 'on' : 'off' }}</button>
                   <input id="random" type="checkbox" v-model="randomState">
@@ -88,7 +88,7 @@
               
               <section 
                 :style="getBgColour"
-                class="custom-colour add d-block m-b-10"
+                class="custom-colour add d-block m-b-20"
                 @click="addColour(red, green, blue)"
                 :title="`#${hexColour(red, green, blue)}`"
               >
