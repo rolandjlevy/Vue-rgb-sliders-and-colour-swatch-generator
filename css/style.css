@@ -83,18 +83,17 @@ input {
   text-align: center;
   color: #999;
   z-index: 999 !important;
-  transition: background 0.1s ease;
 }
 
 .custom-colour:hover {
   outline: 3px solid #333;
   color: #ddd;
   z-index: 1000 !important;
-  transition: background 0.1s ease;
 }
 
 .custom-colour.delete:hover {
   /* filter: drop-shadow(0 0 2px #000); */
+  transition: background 0.3s ease;
 }
 
 .custom-colour.add::before {
@@ -109,10 +108,12 @@ input {
 
 .custom-colour.add {
   content: '+';
-  width: 100px;
-  height: 86px;
+  --plus-icon-height: 75px;
+  --size: 225px;
+  width: var(--size);
+  height: calc(var(--size) - var(--plus-icon-height));
+  padding-top: var(--plus-icon-height);
   font-size: 4rem;
-  padding-top: 14px;
 }
 
 .custom-colour.delete {
@@ -120,7 +121,9 @@ input {
   height: 43px;
   font-size: 2rem;
   padding-top: 7px;
+  transition: background 0.3s ease;
 }
+
 .pointer {
   cursor: pointer;
 }
@@ -204,6 +207,10 @@ button:hover {
 
 .width-200px {
   width: 200px; 
+}
+
+.width-400px {
+  width: 400px; 
 }
 
 hr {
