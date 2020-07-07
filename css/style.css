@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 30px;
   font-size: 16px;
   color: #333;
   background-color: #f3f3f3;
@@ -108,8 +108,8 @@ input {
 
 .custom-colour.add {
   content: '+';
-  --plus-icon-height: 75px;
-  --size: 225px;
+  --plus-icon-height: 85px;
+  --size: 250px;
   width: var(--size);
   height: calc(var(--size) - var(--plus-icon-height));
   padding-top: var(--plus-icon-height);
@@ -205,8 +205,20 @@ button:hover {
   margin-left: 5px;
 }
 
+.width-100pc {
+  width: 100%;
+}
+
 .width-200px {
   width: 200px; 
+}
+
+.width-250px {
+  width: 250px; 
+}
+
+.width-190px {
+  width: 190px; 
 }
 
 .width-400px {
