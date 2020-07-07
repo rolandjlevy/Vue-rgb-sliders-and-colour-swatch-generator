@@ -108,8 +108,8 @@ input {
 
 .custom-colour.add {
   content: '+';
-  --plus-icon-height: 75px;
-  --size: 225px;
+  --plus-icon-height: 85px;
+  --size: 250px;
   width: var(--size);
   height: calc(var(--size) - var(--plus-icon-height));
   padding-top: var(--plus-icon-height);
@@ -211,6 +211,10 @@ button:hover {
 
 .width-200px {
   width: 200px; 
+}
+
+.width-250px {
+  width: 250px; 
 }
 
 .width-190px {
