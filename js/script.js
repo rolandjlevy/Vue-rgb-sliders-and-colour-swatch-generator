@@ -77,7 +77,8 @@ const ColourPicker = {
     blue: 0,
     coloursArray: [],
     randomState: true,
-    errorMessage: ''
+    errorMessage: '',
+    year: new Date().getFullYear()
   }),
   mixins: [UtilsMixin],
   methods: {

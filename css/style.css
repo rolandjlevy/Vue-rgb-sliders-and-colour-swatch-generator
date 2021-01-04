@@ -149,6 +149,28 @@ button:hover {
   transition: all 0.2s ease;
 }
 
+footer {
+  font-size: 1rem;
+  color: #666;
+}
+
+footer > a {
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+footer > a:hover {
+  color: #000;
+  transition: all 0.2s ease;
+}
+
+.new-tab-icon::after {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900; 
+  content: "\f35d";
+  margin-left: 5px;
+}
+
 .d-block {
   display: block;
 }
